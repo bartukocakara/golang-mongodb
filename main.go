@@ -2,10 +2,11 @@ package main
 
 import (
 	"os"
-	"restaurant-management/middleware"
+	"restaurant-management/database"
 	"restaurant-management/routes"
 
 	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 var foodCollection *mongo.Collection = database.OpenCollection(database.Client, "food")
@@ -20,7 +21,7 @@ func main() {
 	router := gin.New()
 	router.Use(gin.Logger())
 	routes.UserRoutes(router)
-	router.Use(middleware.Authentication())
+	// router.Use(middleware.Authentication())
 
 	routes.FoodRoutes(router)
 	routes.MenuRoutes(router)
@@ -29,7 +30,7 @@ func main() {
 	routes.InvoiceRoutes(router)
 	routes.TableRoutes(router)
 
-	routes.Run(":" + port)
+	router.Run(":" + port)
 	
 
 
