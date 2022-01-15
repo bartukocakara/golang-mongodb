@@ -23,7 +23,7 @@ type InvoiceFormatter struct {
 	Order_details interface{}
 }
 
-var invoiceCollection *mongo.Collection = database.OpenCollection(database.Client, "invoice")
+var invoiceCollection *mongo.Collection = database.OpenCollection(database.Client, "invoices")
 
 func GetInvoices() gin.HandlerFunc {
 	return func(c *gin.Context) {
