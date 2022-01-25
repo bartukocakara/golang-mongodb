@@ -100,17 +100,17 @@ func CreateFood() gin.HandlerFunc {
 			c.JSON(http.StatusBadRequest, gin.H{"error": validationErr.Error()})
 			return
 		}
-		err := menuCollection.FindOne(ctx, bson.M{"menu_id": food.Menu_Id}).Decode(&menu)
+		err := menuCollection.FindOne(ctx, bson.M{"menu_id": food.Menu_id}).Decode(&menu)
 		defer cancel()
 		if err != nil {
 			msg := fmt.Sprintf("menu was not found")
 			c.JSON(http.StatusInternalServerError, gin.H{"error": msg})
 			return
 		}
-		food.Created_At, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
-		food.Updated_At, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+		food.Created_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+		food.Updated_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 		food.ID = primitive.NewObjectID()
-		food.Food_Id = food.ID.Hex()
+		food.Food_id = food.ID.Hex()
 		var num = toFixed(*food.Price, 2)
 		food.Price = &num
 
@@ -124,6 +124,7 @@ func CreateFood() gin.HandlerFunc {
 		c.JSON(http.StatusOK, result)
 	}
 }
+
 
 func UpdateFood() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -148,12 +149,12 @@ func UpdateFood() gin.HandlerFunc {
 			updateObj = append(updateObj, bson.E{"price", food.Price})
 		}
 
-		if food.FoodImage != nil {
-			updateObj = append(updateObj, bson.E{"food_image", food.FoodImage})
+		if food.Food_image != nil {
+			updateObj = append(updateObj, bson.E{"food_image", food.Food_image})
 		}
 
-		if food.Menu_Id != nil {
-			err := menuCollection.FindOne(ctx, bson.M{"menu_id": food.Menu_Id}).Decode(&menu)
+		if food.Menu_id != nil {
+			err := menuCollection.FindOne(ctx, bson.M{"menu_id": food.Menu_id}).Decode(&menu)
 			defer cancel()
 			if err != nil {
 				msg := fmt.Sprintf("message:Menu was not found")
@@ -164,8 +165,8 @@ func UpdateFood() gin.HandlerFunc {
 			updateObj = append(updateObj, bson.E{"menu", food.Price})
 		}
 
-		food.Updated_At, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
-		updateObj = append(updateObj, bson.E{"updated_at", food.Updated_At})
+		food.Updated_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
+		updateObj = append(updateObj, bson.E{"updated_at", food.Updated_at})
 
 		upsert := true
 		filter := bson.M{"food_id": foodId}

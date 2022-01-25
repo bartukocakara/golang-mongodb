@@ -33,7 +33,7 @@ func GetTables() gin.HandlerFunc {
 			log.Fatal(err)
 		}
 		
-		c.JSON(http.StatusOK, allTables)
+		c.JSON(http.StatusOK,  gin.H{"items" : allTables } )
 	}
 }
 
@@ -75,6 +75,7 @@ func CreateTable() gin.HandlerFunc {
 		table.Updated_at, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 
 		table.ID = primitive.NewObjectID()
+		table.Table_id = table.ID.Hex()
 
 		result, insertErr := tableCollection.InsertOne(ctx, table)
 		if insertErr != nil {

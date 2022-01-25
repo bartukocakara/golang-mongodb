@@ -35,9 +35,10 @@ func GetOrders() gin.HandlerFunc {
 			log.Fatal(err)
 		}
 		
-		c.JSON(http.StatusOK, allOrders)
+		c.JSON(http.StatusOK, gin.H{"items": allOrders})
 	}
 }
+
 
 func GetOrder() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -57,6 +58,8 @@ func GetOrder() gin.HandlerFunc {
 
 func CreateOrder() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
+
 		var table models.Table
 		var order models.Order
 		
@@ -65,6 +68,7 @@ func CreateOrder() gin.HandlerFunc {
 			return
 		}
 
+		order.Order_Date, _ = time.Parse(time.RFC3339, order.Order_Date.Format(time.RFC3339))
 		validationErr := validate.Struct(order)
 
 		if validationErr != nil {
