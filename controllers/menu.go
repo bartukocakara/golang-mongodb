@@ -39,6 +39,15 @@ func GetMenus() gin.HandlerFunc {
 	}
 }
 
+// ShowMenu godoc
+// @Summary Show an Menu
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Menu ID"
+// @Success 200 {object} models.Menu
+// @Router /menu/{menu_id} [get]
 func GetMenu() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)

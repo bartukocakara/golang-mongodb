@@ -62,6 +62,15 @@ func GetUsers() gin.HandlerFunc{
 	}
 }
 
+// ShowUser godoc
+// @Summary Show an User
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "User ID"
+// @Success 200 {object} models.User
+// @Router /user/{user_id} [get]
 func GetUser() gin.HandlerFunc{
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)

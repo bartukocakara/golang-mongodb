@@ -40,6 +40,15 @@ func GetOrders() gin.HandlerFunc {
 }
 
 
+// ShowOrder godoc
+// @Summary Show an Order
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Order ID"
+// @Success 200 {object} models.Order
+// @Router /order/{order_id} [get]
 func GetOrder() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)

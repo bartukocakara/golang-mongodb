@@ -37,6 +37,15 @@ func GetTables() gin.HandlerFunc {
 	}
 }
 
+// ShowTable godoc
+// @Summary Show an Table
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Table ID"
+// @Success 200 {object} models.Table
+// @Router /table/{table_id} [get]
 func GetTable() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)

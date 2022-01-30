@@ -45,6 +45,16 @@ func GetInvoices() gin.HandlerFunc {
 	}
 }
 
+
+// ShowInvoice godoc
+// @Summary Show an Invoice
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Invoice ID"
+// @Success 200 {object} models.Invoice
+// @Router /invoice/{invoice_id} [get]
 func GetInvoice() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)

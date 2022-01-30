@@ -8,7 +8,6 @@ require (
 	github.com/go-playground/validator/v10 v10.10.0
 	github.com/swaggo/gin-swagger v1.4.0
 	github.com/swaggo/swag v1.7.8
-	github.com/swaggo/swag/example/celler v0.0.0-20220128145552-7137cd895386
 	go.mongodb.org/mongo-driver v1.8.2
 	golang.org/x/crypto v0.0.0-20220128200615-198e4374d7ed
 )

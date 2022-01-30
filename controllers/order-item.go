@@ -45,6 +45,16 @@ func GetOrderItems() gin.HandlerFunc {
 	}
 }
 
+
+// ShowOrderItem godoc
+// @Summary Show an OrderItem
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "OrderItem ID"
+// @Success 200 {object} models.OrderItem
+// @Router /order-item/{order_item_id} [get]
 func GetOrderItem() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)

@@ -22,15 +22,7 @@ import (
 var foodCollection *mongo.Collection = database.OpenCollection(database.Client, "food")
 var validate = validator.New()
 
-// ShowAccount godoc
-// @Summary Show an Food
-// @Description get string by ID
-// @Tags accounts
-// @Accept  json
-// @Produce  json
-// @Param id path int true "Food ID"
-// @Success 200 {object} models.Food
-// @Router /food/{food_id} [get]
+
 func GetFoods() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
@@ -77,6 +69,15 @@ func GetFoods() gin.HandlerFunc {
 	}
 }
 
+// ShowFood godoc
+// @Summary Show an Food
+// @Description get string by ID
+// @Tags accounts
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Food ID"
+// @Success 200 {object} models.Food
+// @Router /food/{food_id} [get]
 func GetFood() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var ctx, cancel = context.WithTimeout(context.Background(), 100*time.Second)
