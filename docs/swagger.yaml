@@ -1,4 +1,31 @@
 basePath: /api/v1
+definitions:
+  models.Food:
+    properties:
+      created_at:
+        type: string
+      food_id:
+        type: string
+      food_image:
+        type: string
+      id:
+        type: string
+      menu_id:
+        type: string
+      name:
+        maxLength: 100
+        minLength: 2
+        type: string
+      price:
+        type: number
+      updated_at:
+        type: string
+    required:
+    - food_image
+    - menu_id
+    - name
+    - price
+    type: object
 host: localhost:8000
 info:
   contact:
@@ -12,7 +39,28 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Swagger Example API
   version: "1.0"
-paths: {}
+paths:
+  /food/{food_id}:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: Food ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Food'
+      summary: Show an Food
+      tags:
+      - accounts
 securityDefinitions:
   ApiKeyAuth:
     in: header

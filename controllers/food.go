@@ -30,9 +30,6 @@ var validate = validator.New()
 // @Produce  json
 // @Param id path int true "Food ID"
 // @Success 200 {object} models.Food
-// @Failure 400 {object} httputil.HTTPError
-// @Failure 404 {object} httputil.HTTPError
-// @Failure 500 {object} httputil.HTTPError
 // @Router /food/{food_id} [get]
 func GetFoods() gin.HandlerFunc {
 	return func(c *gin.Context) {
