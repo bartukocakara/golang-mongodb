@@ -29,7 +29,7 @@ or you can test the api on the URL below.
 
 | Endpoints  | Descriptions |  Methods | 
 | :------:|  :-----------:| :-----------:|
-| /user/   |  | GET |
+| /user   |  | GET |
 | /user/:user_id   |  | GET |
 | /user/:user_id   |  | PATCH |
 | /users/signup   |  | POST |
