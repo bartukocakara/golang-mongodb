@@ -9,6 +9,8 @@ import (
 	"restaurant-management/models"
 	"time"
 
+	"restaurant-management/httputil"
+
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -67,7 +69,8 @@ func GetInvoice() gin.HandlerFunc {
 		defer cancel()
 
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error" : "Error occured while listing invoice collection"})
+			httputil.NewError(c, http.StatusNotFound, err)
+			return
 		}
 
 		var invoiceView InvoiceViewFormat
@@ -88,8 +91,6 @@ func GetInvoice() gin.HandlerFunc {
 		invoiceView.Order_details = allOrderItems[0]["order_items"]
 		
 		c.JSON(http.StatusOK, invoiceView)
-
-
 	}
 }
 
@@ -99,7 +100,7 @@ func CreateInvoice() gin.HandlerFunc {
 		var invoice models.Invoice
 
 		if err := c.BindJSON(&invoice); err != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			httputil.NewError(c, http.StatusBadRequest, err)
 			return
 		}
 
@@ -110,8 +111,7 @@ func CreateInvoice() gin.HandlerFunc {
 		defer cancel()
 
 		if err != nil {
-			msg := fmt.Sprintf("message : Order was not found")
-			c.JSON(http.StatusInternalServerError, gin.H{"error": msg})
+			httputil.NewError(c, http.StatusBadRequest, err)
 		}
 
 		status := "PENDING"
@@ -128,7 +128,7 @@ func CreateInvoice() gin.HandlerFunc {
 
 		validationErr := validate.Struct(invoice)
 		if validationErr != nil {
-			c.JSON(http.StatusBadRequest, gin.H{"error": validationErr.Error()})
+			httputil.NewError(c, http.StatusBadRequest, err)
 			return
 		}
 
