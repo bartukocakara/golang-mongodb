@@ -29,13 +29,9 @@ Now go to `localhost:8000` in your browser. You will see the swagger page. Here 
 
 or you can test the api on the URL below.
 
-For Swagger
-
-http://localhost:8000/swagger/index.html
-
 # Heroku link
 
-https://restaurant-go-app.herokuapp.com/
+https://restaurant-go-app.herokuapp.com/tables
 
 ## Endpoint Table
 
