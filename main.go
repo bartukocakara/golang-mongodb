@@ -4,8 +4,6 @@ import (
 	"os"
 	"restaurant-management/routes"
 
-	_ "restaurant-management/docs"
-
 	"github.com/gin-gonic/gin"
 )
 
