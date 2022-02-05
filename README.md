@@ -33,6 +33,10 @@ For Swagger
 
 http://localhost:8000/swagger/index.html
 
+# Heroku link
+
+https://restaurant-go-app.herokuapp.com/
+
 ## Endpoint Table
 
 | Endpoints  | Descriptions |  Methods | 
