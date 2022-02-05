@@ -29,7 +29,7 @@ Now go to `localhost:8000` in your browser. You will see the swagger page. Here 
 
 or you can test the api on the URL below.
 
-# Heroku link
+# Heroku link (example '/tables')
 
 https://restaurant-go-app.herokuapp.com/tables
 
