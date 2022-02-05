@@ -10,9 +10,9 @@ Fist of all, clone the repo with the command below. You must have golang install
 git clone https://github.com/bartukocakara/golang-mongodb
 ```
 
-```shell
+<!-- ```shell
 swag init
-```
+``` -->
 
 + ### Locally
 
