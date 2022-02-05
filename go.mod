@@ -6,7 +6,6 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-playground/validator/v10 v10.10.0
-	github.com/swaggo/gin-swagger v1.4.0
 	github.com/swaggo/swag v1.7.8
 	go.mongodb.org/mongo-driver v1.8.2
 	golang.org/x/crypto v0.0.0-20220128200615-198e4374d7ed

@@ -7,9 +7,6 @@ import (
 	_ "restaurant-management/docs"
 
 	"github.com/gin-gonic/gin"
-
-	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 // @title Swagger Example API
@@ -50,7 +47,7 @@ func main() {
 	routes.InvoiceRoutes(router)
 	routes.TableRoutes(router)
 
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	// router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	router.Run(":" + port)
 	
