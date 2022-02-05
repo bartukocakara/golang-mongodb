@@ -151,3 +151,9 @@ func UpdateInvoice() gin.HandlerFunc {
 
 	}
 }
+
+func DeleteInvoice() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}

@@ -203,6 +203,18 @@ func Login() gin.HandlerFunc{
 	}
 }
 
+func UpdateUser() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		
+	}
+}
+
+func DeleteUser() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}
+
 func HashPassword(password string) string {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	if err != nil {

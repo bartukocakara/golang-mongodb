@@ -14,5 +14,4 @@ type Food struct {
 	Created_at time.Time          `json:"created_at"`
 	Updated_at time.Time          `json:"updated_at"`
 	Food_id    string             `json:"food_id"`
-	Menu_id    *string            `json:"menu_id" validate:"required"`
 }

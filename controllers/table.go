@@ -152,3 +152,9 @@ func UpdateTable() gin.HandlerFunc {
 		c.JSON(http.StatusOK, result)
 	}
 }
+
+func DeleteTable() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}

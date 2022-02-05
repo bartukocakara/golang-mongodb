@@ -180,3 +180,9 @@ func OrderItemOrderCreator(order models.Order) string {
 
 	return order.Order_id
 }
+
+func DeleteOrder() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}

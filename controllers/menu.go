@@ -158,3 +158,9 @@ func UpdateMenu() gin.HandlerFunc {
 		}
 	}
 }
+
+func DeleteMenu() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
+}

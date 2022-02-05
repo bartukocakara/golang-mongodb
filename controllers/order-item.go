@@ -244,6 +244,11 @@ func ItemsByOrder(id string) (OrderItems []primitive.M, err error){
 
 	return OrderItems, err
 
+}
 
-	
+
+func DeleteOrderItem() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+	}
 }
