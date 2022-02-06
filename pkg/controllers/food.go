@@ -6,8 +6,8 @@ import (
 	"log"
 	"math"
 	"net/http"
-	"restaurant-management/database"
-	"restaurant-management/models"
+	"restaurant-management/pkg/database"
+	"restaurant-management/pkg/models"
 	"strconv"
 	"time"
 

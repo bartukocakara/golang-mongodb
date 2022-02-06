@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"restaurant-management/database"
-	helper "restaurant-management/helpers"
-	"restaurant-management/models"
+	"restaurant-management/pkg/database"
+	helper "restaurant-management/pkg/helpers"
+	"restaurant-management/pkg/models"
 	"strconv"
 	"time"
 

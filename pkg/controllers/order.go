@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"restaurant-management/database"
-	"restaurant-management/models"
+	"restaurant-management/pkg/database"
+	"restaurant-management/pkg/models"
 	"time"
 
 	"github.com/gin-gonic/gin"

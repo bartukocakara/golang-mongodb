@@ -2,7 +2,7 @@ package main
 
 import (
 	"os"
-	"restaurant-management/routes"
+	"restaurant-management/pkg/routes"
 
 	"github.com/gin-gonic/gin"
 )

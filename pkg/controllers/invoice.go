@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"restaurant-management/database"
-	"restaurant-management/models"
+	"restaurant-management/pkg/database"
+	"restaurant-management/pkg/models"
 	"time"
 
-	"restaurant-management/httputil"
+	"restaurant-management/pkg/httputil"
 
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"

@@ -1,11 +1,11 @@
-package helper
+package helpers
 
 import (
 	"context"
 	"fmt"
 	"log"
 	"os"
-	"restaurant-management/database"
+	"restaurant-management/pkg/database"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
